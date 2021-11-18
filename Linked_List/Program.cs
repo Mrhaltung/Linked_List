@@ -15,7 +15,7 @@ namespace Linked_List
             Console.WriteLine("\n Create Linked List is \n");
             List.Display();
 
-            List.deleteNode(0);
+            List.deleteNode(2);
 
             Console.WriteLine("\n Linked List after " + "Deletion at position 4 : ");
             List.Display();
