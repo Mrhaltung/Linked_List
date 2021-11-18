@@ -9,7 +9,9 @@ namespace Linked_List
         internal Node head;
         internal void Add(int data)
         {
-            Node node = new Node(data);
+            Node node = new Node();
+            node.data = data;
+            node.next = null;
             
             if(this.head == null)
             {
@@ -26,6 +28,52 @@ namespace Linked_List
             }
             Console.WriteLine("{0} inserted into linked list", node.data);
         }
+
+        public void insert(int position, int data)
+        {
+            Node node = new Node();
+            node.data = data;
+            node.next = null;
+
+            if(this.head == null)
+            {
+                if(position != 0)
+                {
+                    return;
+                }
+                else
+                {
+                    this.head = node;
+                }
+            }
+
+            if(head != null && position == 0)
+            {
+                node.next = this.head;
+                this.head = node;
+                return;
+            }
+
+            Node current = this.head;
+            Node previous = null;
+
+            int i = 0;
+
+            while(i < position) 
+            {
+                previous = current;
+                current = current.next;
+
+                if(current == null)
+                {
+                    break;
+                }
+                i++;
+            }
+            node.next = current;
+            previous.next = node;
+            Console.WriteLine("\n value inserted in between \n");
+        }
         internal void Display()
         {
             Node temp = this.head;
@@ -36,26 +84,10 @@ namespace Linked_List
             }
             while (temp != null)
             {
-                Console.Write(temp.data + " ");
+                Console.Write(temp.data + "-->");
                 temp = temp.next;
             }
         }
 
-        internal void InsertAfter(Node prev_node, int data)
-        {
-            if (prev_node == null)
-            {
-                Console.WriteLine("The given prevoius node cannot be null");
-                return;
-            }
-            Node NewNode = new Node(data);
-            NewNode.next = head.next;
-            head.next = node;
-            NewNode.head = prev_node;
-            if (NewNode.next != null)
-            {
-                NewNode.next.head = NewNode;
-            }
-        }
     }
 }
