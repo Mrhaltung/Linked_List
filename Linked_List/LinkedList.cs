@@ -29,59 +29,37 @@ namespace Linked_List
             Console.WriteLine("{0} inserted into linked list", node.data);
         }
 
-        public void insert(int position, int data)
+        public void deleteNode(int position)
         {
-            Node node = new Node();
-            node.data = data;
-            node.next = null;
+            if (this.head == null)
+                return;
 
-            if(this.head == null)
-            {
-                if(position != 0)
-                {
-                    return;
-                }
-                else
-                {
-                    this.head = node;
-                }
-            }
+            Node temp = this.head;
 
-            if(head != null && position == 0)
+            if(position == 0)
             {
-                node.next = this.head;
-                this.head = node;
+                this.head = temp.next;
                 return;
             }
 
-            Node current = this.head;
-            Node previous = null;
+            for (int i = 0; temp != null && i < position - 1; i++)
+                temp = temp.next;
 
-            int i = 0;
+            if (temp == null || temp.next == null)
+                return;
 
-            while(i < position) 
-            {
-                previous = current;
-                current = current.next;
+            Node next = temp.next.next;
 
-                if(current == null)
-                {
-                    break;
-                }
-                i++;
-            }
-            node.next = current;
-            previous.next = node;
-            Console.WriteLine("\n value inserted in between \n");
+            temp.next = next;
         }
         internal void Display()
         {
             Node temp = this.head;
-            if(temp == null)
-            {
-                Console.WriteLine("LinkedList is empty");
-                return;
-            }
+            //if(temp == null)
+            //{
+            //    Console.WriteLine("LinkedList is empty");
+            //    return;
+            //}
             while (temp != null)
             {
                 Console.Write(temp.data + "-->");

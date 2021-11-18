@@ -9,10 +9,15 @@ namespace Linked_List
             Console.WriteLine("Welcome to Linked List Program.");
             LinkedList List = new LinkedList();
             List.Add(56);
-            //List.Add(30);
+            List.Add(30);
             List.Add(70);
+
+            Console.WriteLine("\n Create Linked List is \n");
             List.Display();
-            List.insert(1, 30);
+
+            List.deleteNode(0);
+
+            Console.WriteLine("\n Linked List after " + "Deletion at position 4 : ");
             List.Display();
         }
     }
