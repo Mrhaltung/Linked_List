@@ -10,6 +10,7 @@ namespace Linked_List
             LinkedList List = new LinkedList();
             List.Add(56);
             List.Add(30);
+            List.Add(40);
             List.Add(70);
 
             Console.WriteLine("\n Create Linked List is \n");
