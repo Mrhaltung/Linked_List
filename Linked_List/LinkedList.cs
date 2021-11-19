@@ -5,52 +5,71 @@ using System.Diagnostics;
 
 namespace Linked_List
 {
-    class LinkedList
+    class LinkedList<T> where T : IComparable<T>
     {
-        internal Node head;
-        internal void Add(int data)
+        internal Node<T> head = null;
+        internal Node<T> tail = null;
+
+        internal void Add(T data)
         {
-            Node node = new Node(data);
+            Node<T> node = new Node<T>(data);
             node.data = data;
             node.next = null;
             
-            if(this.head == null)
+            if(head == null)
             {
-                this.head = node;
+                head = node;
+                tail = node;
             }
             else
             {
-                Node temp = head;
-                while (temp.next != null)
-                {
-                    temp = temp.next;
-                }
-                temp.next = node;
+                tail.next = node;
+                tail = node;
             }
             Console.WriteLine("{0} inserted into linked list", node.data);
         }
 
-        public bool Search(Node head, int n)
+        public void sortList()
         {
-            Node current = head;
-            while (current != null)
+            Node<T> current = head, index = null;
+            T temp;
+
+            if (head == null)
+                return;
+            else
             {
-               if (current.data == n)
-                    return true;
-                current = current.next;
+                while(current != null)
+                {
+                    index = current.next;
+
+                    while(index != null)
+                    {
+                        if(current.data.CompareTo(index.data) > 0)
+                        {
+                            temp = current.data;
+                            current.data = index.data;
+                            index.data = temp;
+                        }
+                        index = index.next;
+                    }
+                    current = current.next;
+                }
             }
-            return false;
         }
         internal void Display()
         {
-            Node temp = this.head;
-            
-            while (temp != null)
+            Node<T> current = head;
+            if(head == null)
             {
-                Console.Write(temp.data + "-->");
-                temp = temp.next;
+                Console.WriteLine("List is Empty");
+                return;
             }
+            while (current != null)
+            {
+                Console.Write(current.data + "-->");
+                current = current.next;
+            }
+            Console.WriteLine();
         }
-
     }
 }

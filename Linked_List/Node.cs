@@ -5,14 +5,15 @@ using System.Diagnostics;
 
 namespace Linked_List
 {
-    public class Node
+    public class Node<T>
     {
-        public int data;
-        public Node next;
+        public T data;
+        public Node<T> next;
 
-        public Node(int data)
+        public Node(T data)
         {
             this.data = data;
+            next = null;
         }
     }
 }
