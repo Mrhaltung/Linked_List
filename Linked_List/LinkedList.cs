@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 
 namespace Linked_List
 {
@@ -9,7 +10,7 @@ namespace Linked_List
         internal Node head;
         internal void Add(int data)
         {
-            Node node = new Node();
+            Node node = new Node(data);
             node.data = data;
             node.next = null;
             
@@ -29,37 +30,21 @@ namespace Linked_List
             Console.WriteLine("{0} inserted into linked list", node.data);
         }
 
-        public void deleteNode(int position)
+        public bool Search(Node head, int n)
         {
-            if (this.head == null)
-                return;
-
-            Node temp = this.head;
-
-            if(position == 0)
+            Node current = head;
+            while (current != null)
             {
-                this.head = temp.next;
-                return;
+               if (current.data == n)
+                    return true;
+                current = current.next;
             }
-
-            for (int i = 0; temp != null && i < position - 1; i++)
-                temp = temp.next;
-
-            if (temp == null || temp.next == null)
-                return;
-
-            Node next = temp.next.next;
-
-            temp.next = next;
+            return false;
         }
         internal void Display()
         {
             Node temp = this.head;
-            //if(temp == null)
-            //{
-            //    Console.WriteLine("LinkedList is empty");
-            //    return;
-            //}
+            
             while (temp != null)
             {
                 Console.Write(temp.data + "-->");

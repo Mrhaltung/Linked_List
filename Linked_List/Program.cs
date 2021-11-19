@@ -4,6 +4,8 @@ namespace Linked_List
 {
     class Program
     {
+        private static Node head = null;
+        private int n = 30;
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Linked List Program.");
@@ -16,9 +18,9 @@ namespace Linked_List
             Console.WriteLine("\n Create Linked List is \n");
             List.Display();
 
-            List.deleteNode(2);
-
-            Console.WriteLine("\n Linked List after " + "Deletion at position 4 : ");
+            Console.Write("\n \n Searched the Node : ");
+            List.Search(head, 30);
+            Console.WriteLine("\n");
             List.Display();
         }
     }
