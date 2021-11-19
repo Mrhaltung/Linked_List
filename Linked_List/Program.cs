@@ -4,7 +4,7 @@ namespace Linked_List
 {
     class Program
     {
-        private static Node head = null;
+        //private static Node head = null;
         private int n = 30;
         static void Main(string[] args)
         {
@@ -15,13 +15,11 @@ namespace Linked_List
             List.Add(40);
             List.Add(70);
 
-            Console.WriteLine("\n Create Linked List is \n");
+            Console.Write("\n Create Linked List is : ");
             List.Display();
 
-            Console.Write("\n \n Searched the Node : ");
-            List.Search(head, 30);
-            Console.WriteLine("\n");
-            List.Display();
+            Console.WriteLine("\n \n Searched the Node : ");
+            List.Search(40);
         }
     }
 }

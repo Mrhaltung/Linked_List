@@ -30,15 +30,19 @@ namespace Linked_List
             Console.WriteLine("{0} inserted into linked list", node.data);
         }
 
-        public bool Search(Node head, int n)
+        public bool Search(int n)
         {
             Node current = head;
             while (current != null)
             {
-               if (current.data == n)
-                    return true;
-                current = current.next;
+                if (current.data == n)
+                {
+                    Console.WriteLine("\n Element is Present");
+                    Console.WriteLine("\n Display the Current Node : " + current.data);
+                }
+                current = current.next;   
             }
+            //Console.WriteLine("\n Element is not Preset");
             return false;
         }
         internal void Display()
