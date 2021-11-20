@@ -40,22 +40,5 @@ namespace Linked_List
                 temp = temp.next;
             }
         }
-
-        internal void InsertAfter(Node prev_node, int data)
-        {
-            if (prev_node == null)
-            {
-                Console.WriteLine("The given prevoius node cannot be null");
-                return;
-            }
-            Node NewNode = new Node(data);
-            NewNode.next = head.next;
-            head.next = node;
-            NewNode.head = prev_node;
-            if (NewNode.next != null)
-            {
-                NewNode.next.head = NewNode;
-            }
-        }
     }
 }
